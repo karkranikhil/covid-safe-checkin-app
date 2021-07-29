@@ -3,6 +3,8 @@
     "version": "0.0.1",
     "bugs": "https://github.com/covid-checkin-app/issues",
     "dependencies": {
+        "@lwc/synthetic-shadow": "^2.3.0",
+        "@salesforce-ux/design-system": "^2.15.9",
         "compression": "^1.7.4",
         "express": "^4.17.1",
         "helmet": "^4.6.0"
