@@ -10,7 +10,7 @@ export default class App extends LightningElement {
 
     // method on form change
     formchange(event){
-        const {name, value} = event.target
+        const {name, value} = event.detail
         this.formData = {...this.formData, [name]:value}
     }
     // method on submit
