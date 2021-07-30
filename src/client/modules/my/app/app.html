@@ -1,10 +1,65 @@
 <template>
-    <h1>Hurray my project is up and running!!</h1>
-    <button class="slds-button">Button</button>
-    <button class="slds-button slds-button_neutral">Neutral Button</button>
-    <button class="slds-button slds-button_brand">Brand Button</button>
-    <button class="slds-button slds-button_outline-brand">Outline Brand Button</button>
-    <button class="slds-button slds-button_destructive">Destructive Button</button>
-    <button class="slds-button slds-button_text-destructive">Text Destructive Button</button>
-    <button class="slds-button slds-button_success">Success Button</button>
+    <div class="slds-grid slds-grid_align-center slds-wrap slds-gutters slds-p-around_x-large">
+        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_8-of-12 slds-size_12-of-12">
+            <!--Card will come here-->
+            <article class="slds-card">
+                <div class="slds-card__header slds-grid">
+                  <!--Card Heading will go here-->
+                  <header class="slds-media slds-media_center slds-has-flexi-truncate slds-grid_align-center">
+                    <div class="slds-text-heading_large">COVID-19 Safe Check-in Form</div>
+                  </header>
+                </div>
+                <!--Card Body will go here-->
+                <div class="slds-card__body slds-card__body_inner">
+                    <p class="slds-text-body_small form-description">If you have cold or flu like symptoms, such as a cough, fever, sore throat, shortness of breath or runny nose, even if these are mild, you should get tested for COVID-19 as soon as possible. People with mild symptoms can still spread the virus. To help stop the spread of COVID-19, anyone with cold or flu-like symptoms should get tested.</p>
+                    <div class="slds-grid slds-grid_align-spread slds-p-top_large">
+                        <img src="/resources/remote-work-man.svg" alt="working man during covid situtation"/>
+                        <img src="/resources/remote-work-woman.svg" alt="working woman during covid situtation"/>
+                        <img src="/resources/mask-woman.svg" alt="working woman during covid situtation in mask"/>
+                    </div>
+                    <form onsubmit={checkInHandler}>
+                        <!--First input field Name-->
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="text-input-id-1">
+                              <abbr class="slds-required" title="required">* </abbr>Name</label>
+                            <div class="slds-form-element__control">
+                              <input type="text" 
+                              name="Name"
+                              id="text-input-id-1"  
+                              required 
+                              class="slds-input" 
+                              onkeyup={formchange}/>
+                            </div>
+                        </div>
+                        <!--Second input field Email-->
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="text-input-id-1">
+                              <abbr class="slds-required" title="required">* </abbr>Email</label>
+                            <div class="slds-form-element__control">
+                              <input type="email" name="Email" id="text-input-id-2"  required class="slds-input" onkeyup={formchange}/>
+                            </div>
+                        </div>
+                        <!--Third input field Mobile-->
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="text-input-id-1">
+                              <abbr class="slds-required" title="required">* </abbr>Mobile</label>
+                            <div class="slds-form-element__control">
+                              <input type="number" name="Mobile" id="text-input-id-3" required class="slds-input" onkeyup={formchange}/>
+                            </div>
+                        </div>
+                        <!--Form button will come here-->
+                        <div class="slds-p-top_medium">
+                            <button type="submit" class="slds-card__footer-action slds-button slds-button_brand margin-auto">
+                                Check-in
+                            </button>
+                        </div>
+                    </form>
+
+                   
+                </div>
+
+              </article>
+        </div>
+    </div>
+    
 </template>

@@ -1,3 +1,21 @@
 import { LightningElement } from 'lwc';
+const defaultData = {
+    Name:'',
+    Email: '',
+    Mobile:''
+}
+export default class App extends LightningElement {
+    //local property
+    formData = defaultData
 
-export default class App extends LightningElement {}
+    // method on form change
+    formchange(event){
+        const {name, value} = event.target
+        this.formData = {...this.formData, [name]:value}
+    }
+    // method on submit
+    checkInHandler(event){
+        event.preventDefault()
+        console.log(this.formData)
+    }
+}
