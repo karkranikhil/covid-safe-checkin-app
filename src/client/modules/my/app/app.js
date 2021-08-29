@@ -9,6 +9,14 @@ const BASE_URL = 'http://localhost:3002'
 export default class App extends LightningElement {
     //local property
     formData = defaultData
+    loader = false
+    isSubmitted = false
+
+    //getter
+
+    get checkinMsg(){
+        return  `Welcome, ${this.formData.Name}. You're checked`
+    }
 
     // method on form change
     formchange(event){
@@ -18,7 +26,7 @@ export default class App extends LightningElement {
     // method on submit
     checkInHandler(event){
         event.preventDefault()
-       
+        this.loader = true
         this.formData={...this.formData,
             "Date":new Date().toLocaleDateString(),
             "Time":new Date().toLocaleTimeString()
@@ -31,8 +39,19 @@ export default class App extends LightningElement {
             },
             body:JSON.stringify(this.formData)
         }).then(response=>response.json())
-        .then(result=>console.log(result))
+        .then(result=>{
+            if(result.success){
+                this.isSubmitted = true
+                window.setTimeout(()=>{
+                    this.isSubmitted = false
+                    this.formData={...defaultData}
+                }, 6000)
+            }
+        })
         .catch(error=>console.error(error))
+        .finally(()=>{
+            this.loader = false
+        })
     }
 
     //on load hook

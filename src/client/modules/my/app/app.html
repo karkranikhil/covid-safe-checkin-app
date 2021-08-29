@@ -1,4 +1,8 @@
 <template>
+    <template if:true={loader}>
+        <my-spinner></my-spinner>
+    </template>
+
     <div class="slds-grid slds-grid_align-center slds-wrap slds-gutters slds-p-around_x-large">
         <div class="slds-col slds-large-size_6-of-12 slds-medium-size_8-of-12 slds-size_12-of-12">
             <!--Card will come here-->
@@ -6,7 +10,14 @@
                 <div class="slds-card__header slds-grid">
                   <!--Card Heading will go here-->
                   <header class="slds-media slds-media_center slds-has-flexi-truncate slds-grid_align-center">
-                    <div class="slds-text-heading_large">COVID-19 Safe Check-in Form</div>
+                    <template if:true={isSubmitted}>
+                        <div class="slds-text-heading_large">{checkinMsg}</div>
+                    </template>
+                    <template if:false={isSubmitted}>
+                        <div class="slds-text-heading_large">COVID-19 Safe Check-in Form</div>
+                    </template>
+
+                    
                   </header>
                 </div>
                 <!--Card Body will go here-->
@@ -17,23 +28,22 @@
                         <img src="/resources/remote-work-woman.svg" alt="working woman during covid situtation"/>
                         <img src="/resources/mask-woman.svg" alt="working woman during covid situtation in mask"/>
                     </div>
-                    
-                    <form class="slds-border_top slds-p-top_x-large" onsubmit={checkInHandler}>
-                        <!--First input field Name-->
-                        <my-custom-input type="text" name="Name" required label="Name" onformchange={formchange}></my-custom-input>
-                        <!--Second input field Email-->
-                        <my-custom-input type="email" name="Email" required label="Email" onformchange={formchange}></my-custom-input>
-                        <!--Third input field Mobile-->
-                        <my-custom-input type="number" name="Mobile" required label="Mobile" onformchange={formchange}></my-custom-input>
-                        <!--Form button will come here-->
-                        <div class="slds-p-top_medium">
-                            <button type="submit" class="slds-card__footer-action slds-button slds-button_brand margin-auto">
-                                Check-in
-                            </button>
-                        </div>
-                    </form>
-
-                   
+                    <template if:false={isSubmitted}>
+                        <form class="slds-border_top slds-p-top_x-large" onsubmit={checkInHandler}>
+                            <!--First input field Name-->
+                            <my-custom-input type="text" name="Name" required label="Name" onformchange={formchange}></my-custom-input>
+                            <!--Second input field Email-->
+                            <my-custom-input type="email" name="Email" required label="Email" onformchange={formchange}></my-custom-input>
+                            <!--Third input field Mobile-->
+                            <my-custom-input type="number" name="Mobile" required label="Mobile" onformchange={formchange}></my-custom-input>
+                            <!--Form button will come here-->
+                            <div class="slds-p-top_medium">
+                                <button type="submit" class="slds-card__footer-action slds-button slds-button_brand margin-auto">
+                                    Check-in
+                                </button>
+                            </div>
+                        </form>
+                    </template>
                 </div>
 
               </article>
