@@ -5,7 +5,7 @@ const defaultData = {
     Mobile:''
 }
 
-const BASE_URL = 'http://localhost:3002'
+const BASE_URL = 'https://safe-journey-30571.herokuapp.com'
 export default class App extends LightningElement {
     //local property
     formData = defaultData
