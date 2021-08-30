@@ -1,11 +1,16 @@
-# covid-checkin-app
+# COVID-19 Safe Check-in Form
 
-Here will be some information about the app.
+An app to trace the user visiting your place. 
 
 ## How to start?
 
-Start simple by running `yarn watch` (or `npm run watch`, if you set up the project with `npm`). This will start the project with a local development server.
+```
+npm run start:api
 
-The source files are located in the [`src`](./src) folder. All web components are within the [`src/client/modules`](./src/modules) folder. The folder hierarchy also represents the naming structure of the web components. The entry file for the custom Express configuration can be found in the ['src/server'](./src/server) folder.
+```
+## QR code to Check-in
+<img src="images/QRcode.png" alt="Check in to app " width="500px">
 
-Find more information on the main repo on [GitHub](https://github.com/muenzpraeger/create-lwc-app).
+## Output of the application
+<img src="images/output.png" alt="output of the deployed app">
+
