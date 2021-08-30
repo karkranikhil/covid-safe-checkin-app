@@ -33,12 +33,9 @@ app.use(express.urlencoded({
 }))
 
 
-
-
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 3002;
 const DIST_DIR = './dist';
-
 
 app.use(express.static(DIST_DIR));
 //google sheet function
@@ -84,6 +81,6 @@ app.post('/api/v1/submit', async(req, res)=>{
 
 app.listen(PORT, () =>
     console.log(
-        `✅  API Server started: http://${HOST}:${PORT}/api/v1/endpoint`
+        `✅  App is running on: http://${HOST}:${PORT}`
     )
 );
